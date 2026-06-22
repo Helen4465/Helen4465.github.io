@@ -69,7 +69,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px
+      padding: 0 24px 24px 24px
     }
 
     /* Header */
@@ -86,7 +86,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0
+      padding: 18px
     }
 
     .logo {
@@ -747,7 +747,7 @@
             <li style="margin-bottom:12px">👤 Индивидуальная игра — 1,5–2 часа — 2 500 ₽</li>
           </ul>
 
-          <div class="service-price"> 2 000 / 3 500 ₽</div>
+          <div class="service-price"> 2 000 / 2 500 ₽</div>
         </div>
 
       </div>
@@ -892,51 +892,27 @@
 
   <!-- CONTACT -->
   <!-- Начало блока записи -->
-  <section id="contact" style="position: relative; padding: 50px 20px; background: #0b0b1a38;">
-    <h2 style="text-align: center;">Записаться на консультацию</h2>
-    <p style="text-align: center; margin-bottom: 30px;">Оставьте заявку — я свяжусь с вами в течение дня</p>
-
-    <!-- Сама форма (она останется в коде, но будет скрыта) -->
-    <form style="max-width: 600px; margin: 0 auto; opacity: 0.3; pointer-events: none;">
-      <input type="text" placeholder="Ваше имя"
-        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-      <input type="text" placeholder="Телефон / Telegram / эл.почта"
-        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-      <select style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-        <option>— выберите —</option>
-        <option>Нумерология для взрослых</option>
-        <option>Нумерология для детей</option>
-        <option>Профориентация</option>
-        <option>Совместимость партнёров</option>
-        <option>Консультация в записи</option>
-        <option>Комплексная консультация</option>
-        <option>"Код удачи"</option>
-      </select>
-      <textarea placeholder="Комментарий (запрос, дата)"
-        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
-      <button type="button"
-        style="width: 100%; padding: 15px; background: #8e44ad; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: not-allowed;">Отправить
-        заявку</button>
-    </form>
-
-    <!-- ПЛАШКА ПОВЕРХ ФОРМЫ (полупрозрачная с размытием) -->
-    <div
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 10; padding: 20px; box-sizing: border-box; border-top: 1px solid rgba(255, 255, 255, 0.5); border-bottom: 1px solid rgba(255, 255, 255, 0.5);">
-      <h2 style="color: #000000; margin-bottom: 15px; text-shadow: 0 1px 2px rgba(255,255,255,0.6);">⏳ В данный момент
-        форма записи на реконструкции</h2>
-      <p
-        style="font-size: 18px; color: #000000; margin-bottom: 25px; max-width: 600px; text-shadow: 0 1px 2px rgba(255,255,255,0.6);">
-        Пожалуйста, свяжитесь со мной напрямую любым удобным способом:</p>
-      <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-        <a href="https://t.me/mynumerologiya_4465" target="_blank"
-          style="padding: 14px 28px; background: rgba(0, 136, 204, 0.9); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s;">✈
-          Написать в Telegram</a>
-        <a href="mailto:Numerolog4465@yandex.ru"
-          style="padding: 14px 28px; background: rgba(142, 68, 173, 0.9); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s;">✉
-          Написать на Почту</a>
-      </div>
-    </div>
-  </section>
+<div class="container">
+  <h2 class="section-title">Записаться на консультацию</h2>
+  <p class="section-subtitle">Оставьте заявку — я свяжусь с вами в течение дня</p>
+  <div class="contact-form" style="text-align:center;padding:50px 30px">
+    <p style="color:var(--muted);margin-bottom:30px;font-size:17px;line-height:1.7">
+      Нажмите на кнопку ниже, чтобы открыть форму записи.<br>
+      После отправки заявки я свяжусь с вами в течение дня.
+    </p>
+    <a 
+      href="https://forms.yandex.ru/u/6a396fba95add51e8e938a1b/" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="btn"
+      style="font-size:18px;padding:18px 50px">
+      ✦ Открыть форму записи
+    </a>
+    <p style="color:var(--muted);margin-top:25px;font-size:14px">
+      Форма откроется в новой вкладке
+    </p>
+  </div>
+</div>
 
   <!-- FOOTER -->
   <footer>
