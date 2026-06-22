@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нумерология — раскройте свой потенциал через числа</title>
+  <meta name="description"
+    content="Практикующий нумеролог. Консультации для взрослых и детей, разбор даты рождения, определение предназначения, талантов и сферы реализации.">
+  <style>
+    :root {
+      --bg: #0b0b1a;
+      --bg-2: #14142b;
+      --gold: #d4af37;
+      --gold-light: #f1d77a;
+      --text: #e8e8f0;
+      --muted: #a0a0b8;
+      --card: #1a1a33;
+      --border: rgba(212, 175, 55, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Звёздный фон */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 60% 70%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 80% 20%, #d4af37, transparent),
+        radial-gradient(1px 1px at 30% 80%, #fff, transparent),
+        radial-gradient(2px 2px at 90% 50%, #fff, transparent),
+        radial-gradient(1px 1px at 10% 60%, #d4af37, transparent),
+        radial-gradient(1.5px 1.5px at 50% 40%, #fff, transparent);
+      background-size: 400px 400px;
+      opacity: 0.5;
+      z-index: -1;
+      animation: twinkle 8s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.3
+      }
+
+      100% {
+        opacity: 0.6
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 11, 26, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0
+    }
+
+    .logo {
+      font-size: 24px;
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 2px
+    }
+
+    .logo span {
+      color: var(--text)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color .3s
+    }
+
+    .nav-links a:hover {
+      color: var(--gold)
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 28px;
+      cursor: pointer
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      margin-bottom: 24px;
+      line-height: 1.2;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0b0b1a;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #0b0b1a
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 60px;
+      font-size: 17px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 500px;
+      background: linear-gradient(135deg, var(--card), var(--bg-2));
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, transparent, var(--gold), transparent);
+      animation: rotate 10s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .about-text h3 {
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 20px
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      color: var(--muted)
+    }
+
+    /* Services */
+    .services {
+      background: var(--bg-2)
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform .3s, border-color .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform .4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold)
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1)
+    }
+
+    .service-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .service-card h3 {
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-size: 22px
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px
+    }
+
+    .service-price {
+      font-size: 24px;
+      color: var(--gold-light);
+      font-weight: bold;
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0b0b1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 auto 20px;
+    }
+
+    .step h4 {
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 18px
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* Reviews */
+    .reviews {
+      background: var(--bg-2)
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .review {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .review::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 80px;
+      color: var(--gold);
+      opacity: 0.3;
+      font-family: Georgia;
+      line-height: 1;
+    }
+
+    .review-text {
+      color: var(--text);
+      margin-bottom: 20px;
+      font-style: italic;
+      position: relative;
+      z-index: 1
+    }
+
+    .review-author {
+      color: var(--gold);
+      font-weight: bold
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 17px;
+      color: var(--text);
+      transition: color .3s;
+    }
+
+    .faq-question:hover {
+      color: var(--gold)
+    }
+
+    .faq-question::after {
+      content: '+';
+      color: var(--gold);
+      font-size: 28px;
+      transition: transform .3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      transform: rotate(45deg)
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .4s ease;
+      padding: 0 24px;
+      color: var(--muted);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 20px;
+    }
+
+    /* Contact form */
+    .contact {
+      background: var(--bg-2)
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      transition: border-color .3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-top: 30px
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      color: var(--gold);
+      margin-top: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: #05050f;
+      padding: 40px 0 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-contacts {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-contacts a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    .footer-contacts a:hover {
+      color: var(--gold)
+    }
+
+    .copyright {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* Mobile */
+    @media(max-width:768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-2);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .burger {
+        display: block
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .about-image {
+        max-width: 280px;
+        margin: 0 auto;
+        font-size: 80px
+      }
+
+      .contact-form {
+        padding: 28px 20px
+      }
+
+      section {
+        padding: 60px 0
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">✦ <span>НУМЕРОЛОГ и Я</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#how">Как это работает</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="#contact">Записаться</a></li>
+      </ul>
+      <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Раскройте свой потенциал через язык чисел</h1>
+      <p class="subtitle">Практикующий нумеролог.
+      <p class="subtitle">Персональные консультации для взрослых и детей — узнайте своё предназначение, таланты и путь
+        реализации.</p>
+      <a href="#contact" class="btn">Записаться на консультацию</a>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Обо мне</h2>
+      <p class="section-subtitle">Помогаю людям увидеть себя истинных через числа.
+      <p class="section-subtitle">Только математика вашего жизненного пути.</p>
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="photo_2026-01-07_13-13-13.jpg">
+        </div>
+        <div class="about-text">
+          <h3>Практикующий нумеролог</h3>
+          <p>
+            Я, Елена — практикующий нумеролог с многолетним опытом.<br>
+            Помогаю взрослым и подросткам разобраться в себе, понять свои сильные стороны и найти своё место в жизни,
+            открыть таланты у детей в сферах, заложенных в дате рождения.<br>
+            Корректирую состояние "не понимаю, куда двигаться" с помощью нумерологического расчёта вашей даты.
+          </p>
+          <p>
+            В своей работе я анализирую даты рождения, числовые сочетания и их влияние на характер человека с самого
+            рождения.<br>
+            Каждое число несёт в себе определённую энергию, которая формирует наши способности, таланты и жизненные
+            задачи.
+          </p>
+          <p>Моя цель — не предсказать будущее, а дать вам инструмент для осознанного выбора и реализации своего
+            потенциала.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">Услуги</h2>
+      <p class="section-subtitle">Выберите подходящий формат работы</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">👤</div>
+          <h3>Нумерология для взрослых</h3>
+          <p>Разбор даты рождения по следующим направлениям: характер, предназначение, сильные и слабые стороны,
+            кармические задачи, совместимость в отношениях.</p>
+          <div class="service-price">(45 мин.) 3 500 ₽</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👶</div>
+          <h3>Нумерология для детей с 0 до 16 лет</h3>
+          <p>Узнайте врождённые таланты ребёнка, его особенности характера и в каком направлении его лучше развивать с
+            самого детства.</p>
+          <div class="service-price">(45 мин.) 2 500 ₽</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>Профориентация</h3>
+          <p>Определение сферы, в которой вы сможете максимально реализовать себя, зарабатывать и получать удовольствие
+            от работы.</p>
+          <div class="service-price">(45 мин.) 3 500 ₽</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💑</div>
+          <h3>Совместимость партнёров</h3>
+          <p>Анализ числовых вибраций двух людей: сильные стороны союза, зоны роста и рекомендации для гармоничных
+            отношений.</p>
+          <div class="service-price">(45 мин.) 3 500 ₽</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📅</div>
+          <h3>Консультация в записи</h3>
+          <p>Аудиосообщение (30 мин.)</p>
+          <div class="service-price">1 500 ₽</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Комплексная консультация</h3>
+          <p>Разбор даты рождения - 2-х взрослых человек (по 45 мин. каждая) выгода 1 000 ₽</p>
+          <div class="service-price">6 000 ₽</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💑</div>
+          <h3>"Код удачи" - трансформационная игра </h3>
+          <p> Это не просто игра — это разговор с самим собой, который приводит к осознаниям, инсайтам и решению
+            волнующего вопроса.
+            Если внутри есть запрос — ситуация, в которой вы «застряли», или просто хочется по-настоящему услышать себя
+            — игра «Код удачи» станет тем самым пространством, где всё проясняется.
+
+          <p> 🔍 Что даёт игра:
+          <p> — Помогает разобраться в себе и ситуации
+          <p> — Открывает скрытые ресурсы и возможности
+          <p> — Даёт неожиданные, нестандартные решения
+          <p> — Направляет от вопроса к результату
+
+          <p>🌀 Форматы участия:
+
+          <h3>Стоимость</h3>
+          <ul style="list-style:none;padding:0">
+            <li style="margin-bottom:12px">👥 Групповая игра (2–4 человек) — 2,5–3 часа — 2 000 ₽</li>
+            <li style="margin-bottom:12px">👤 Индивидуальная игра — 1,5–2 часа — 2 500 ₽</li>
+          </ul>
+
+          <div class="service-price"> 2 000 / 3 500 ₽</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <h2 class="section-title">Как проходит консультация</h2>
+      <p class="section-subtitle">Простой и понятный процесс в 4 шага</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Заявка</h4>
+          <p>Вы оставляете заявку через форму или пишете мне в мессенджер Telegram, на электронную почту
+            Numerolog4465@yandex.ru</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Данные</h4>
+          <p>Присылаете дату рождения и основной вопрос, на который будем ориентироваться во время консультации — я
+            приступаю к расчётам</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Встреча</h4>
+          <p>Назначаем дату и время встречи, созваниваемся по видеозвонку онлайн — подробно всё разбираем </p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>Отчёт</h4>
+          <p>Вы получаете запись встречи</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2 class="section-title">Отзывы клиентов</h2>
+      <p class="section-subtitle">Истории тех, кто уже нашёл ответы</p>
+      <div class="reviews-grid">
+
+        <div class="review">
+          <p class="review-text">Хочу поделиться. На днях разбирала по дате рождения сына. Ему почти 16. Заканчтвает 9
+            класс. Вопрос был в какую сфере сможет себя проявить и где сможет заработать деньги. Консультация была
+            полезной. Даже сейчас в реальном времени подсказки были точными. Вообще хочу поделиться по датам рождения я
+            разобралась почему конфликты между мной и сыном. Немного пересмотрела отношение и конфликтов стало меньше.
+            Больше получается направлять. Стало легче общатся.
+            Рекомендую обращайтесь за разбором. Это на многое открывает глаза. И приходит понимание.</p>
+          <div class="review-author">— Оксана, </div>
+        </div>
+
+        <div class="review">
+          <p class="review-text">Хочу оставить отзыв о консультации по нумерологии , вчера Елена провела со мной сессию
+            и мы разобрали запрос по профессии и талантам, куда лучше двигаться в каком направлении. Елена рассказала в
+            каком периоде я сейчас и что мною движет, и плюсы и минусы некоторых характеристик, например я узнала что я
+            число" 25 "в году) это на многое открыло глаза. Так же почти про каждую цифру и комбинацию я получила
+            ответы, обо всем этом нужно посидеть подумать, проанализировать.Общий план действий я поняла про себя! Это
+            значительно облегчает "путь становления, переосознания" ведь я хочу сменить сферу деятельности.Это как некая
+            поддержка, невидимая рука помощи и уверенности, Елена несколько раз сказала доверять интуиции и чутью, оно у
+            меня сильно развито!) Буду прислушиваться теперь чаще! Благодаря такому разговору появилась уверенность
+            двигаться дальше в моем "новом пути" и я реально его чувствую. Спасибо Елене, желаю дальнейшего развития и
+            отличных результатов от клиентов ! ! !!</p>
+          <div class="review-author">— Ксения, </div>
+        </div>
+
+        <div class="review">
+          <p class="review-text">Проходила игру «Код удачи» под чутким руководством Елены. Она направляла нас, задавая
+            наводящие вопросы, позволяющие глубже раскрыть значение каждой клетки. Цель игры - найти ответ на
+            интересующий тебя вопрос, вытаскивая из глубин подсознания те самые ответы. Вопрос начинается со слов – Что
+            мне мешает…… В моем случае с самого первого хода высветилась проблема, которая не дает мне двигаться. И с
+            каждым последующим ходом стали раскрываться мои возможности. Внимательно слушала второго игрока, он очень
+            удачно подсвечивал мне мои пробелы. В том, в чем он силен, в том у меня полный провал. На любые игры люди
+            подбираются неслучайно, я это сегодня ощутила. И я очень благодарна ему за это. В конце Елена озвучила
+            основное направление для решения моего вопроса. Это было неожиданно. И я поняла, что есть ещё о чём думать
+            дальше. Игра для меня продолжается. Пошла анализировать….
+            Благодарю, Елена!
+          <p class="review-text">P.S. В нашем мире много инструментов для познания себя. Кому интересно двигаться в этом
+            направлении – очень рекомендую данную игру. Может это тот самый пазл, который, даже если не соберёт полную
+            картину вашей личности, но однозначно обогатит. И вы с большим багажом будете познавать удивительный мир,
+            под названием Я.</p>
+          <div class="review-author">— Ирина, 55 лет</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+      <p class="section-subtitle">Ответы на то, что вы хотели спросить</p>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">Что нужно для консультации?</div>
+          <div class="faq-answer">
+            <p>Достаточно знать точную дату рождения (день, месяц, год).</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Как проходит онлайн-консультация?</div>
+          <div class="faq-answer">
+            <p>Мы договариваемся о дате и времени консультации. Затем созваниваемся в Zoom, Yandex telemost.
+              Длительность встречи — 45 минут. После встречи вы получаете запись.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Можно ли сделать разбор для ребёнка?</div>
+          <div class="faq-answer">
+            <p>Да, это одна из самых востребованных услуг. Я расскажу о врождённых талантах ребёнка, его характере,
+              особенностях восприятия мира и дам рекомендации по сфере развития талантов. Если дата подростка, то один
+              из запросов по анализу даты - определение направления обучения.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Это научный подход или эзотерика?</div>
+          <div class="faq-answer">
+            <p>Нумерология — это древняя система знаний, основанная на математических закономерностях. Я работаю с
+              числами как с инструментом самопознания, не давая мистических обещаний.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Что если мне не подойдёт?</div>
+          <div class="faq-answer">
+            <p>Если после консультации вы почувствуете, что она была бесполезной — я верну деньги. Но за всю практику
+              таких случаев не было.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <!-- Начало блока записи -->
+  <section id="contact" style="position: relative; padding: 50px 20px; background: #0b0b1a38;">
+    <h2 style="text-align: center;">Записаться на консультацию</h2>
+    <p style="text-align: center; margin-bottom: 30px;">Оставьте заявку — я свяжусь с вами в течение дня</p>
+
+    <!-- Сама форма (она останется в коде, но будет скрыта) -->
+    <form style="max-width: 600px; margin: 0 auto; opacity: 0.3; pointer-events: none;">
+      <input type="text" placeholder="Ваше имя"
+        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+      <input type="text" placeholder="Телефон / Telegram / эл.почта"
+        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+      <select style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+        <option>— выберите —</option>
+        <option>Нумерология для взрослых</option>
+        <option>Нумерология для детей</option>
+        <option>Профориентация</option>
+        <option>Совместимость партнёров</option>
+        <option>Консультация в записи</option>
+        <option>Комплексная консультация</option>
+        <option>"Код удачи"</option>
+      </select>
+      <textarea placeholder="Комментарий (запрос, дата)"
+        style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
+      <button type="button"
+        style="width: 100%; padding: 15px; background: #8e44ad; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: not-allowed;">Отправить
+        заявку</button>
+    </form>
+
+    <!-- ПЛАШКА ПОВЕРХ ФОРМЫ (полупрозрачная с размытием) -->
+    <div
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 10; padding: 20px; box-sizing: border-box; border-top: 1px solid rgba(255, 255, 255, 0.5); border-bottom: 1px solid rgba(255, 255, 255, 0.5);">
+      <h2 style="color: #000000; margin-bottom: 15px; text-shadow: 0 1px 2px rgba(255,255,255,0.6);">⏳ В данный момент
+        форма записи на реконструкции</h2>
+      <p
+        style="font-size: 18px; color: #000000; margin-bottom: 25px; max-width: 600px; text-shadow: 0 1px 2px rgba(255,255,255,0.6);">
+        Пожалуйста, свяжитесь со мной напрямую любым удобным способом:</p>
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        <a href="https://t.me/mynumerologiya_4465" target="_blank"
+          style="padding: 14px 28px; background: rgba(0, 136, 204, 0.9); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s;">✈
+          Написать в Telegram</a>
+        <a href="mailto:Numerolog4465@yandex.ru"
+          style="padding: 14px 28px; background: rgba(142, 68, 173, 0.9); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s;">✉
+          Написать на Почту</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-contacts">
+        <a href="https://t.me/mynumerologiya_4465" target="_blank">✈ Telegram: t.me/mynumerologiya_4465</a>
+        <a href="mailto:Numerolog4465@yandex.ru">✉Numerolog4465@yandex.ru</a>
+      </div>
+      <div class="copyright">© 2026 НУМЕРОЛОГ и Я. Скворцова Елена Владимировна ИНН 773571491874. </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ аккордеон
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // Закрытие мобильного меню при клике на ссылку
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Обработка формы
+    function submitForm(e) {
+      e.preventDefault();
+      // Здесь можно подключить реальную отправку (Formspree, Telegram-бот, email)
+      document.getElementById('formSuccess').style.display = 'block';
+      e.target.reset();
+      setTimeout(() => {
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 5000);
+    }
+  </script>
+
+</body>
+
+</html>
