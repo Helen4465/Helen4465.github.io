@@ -896,36 +896,165 @@
   <div class="container">
     <h2 class="section-title">Записаться на консультацию</h2>
     <p class="section-subtitle">Оставьте заявку — я свяжусь с вами в течение дня</p>
-    <div class="contact-form" style="text-align:center;padding:50px 30px">
-      <p style="color:var(--muted);margin-bottom:30px;font-size:17px;line-height:1.7">
+    
+    <!-- Блок с формой - заблюрен по умолчанию -->
+    <div class="contact-form consent-block" id="formBlock">
+      <p style="color:var(--muted);margin-bottom:30px;font-size:17px;line-height:1.7;text-align:center">
         Нажмите на кнопку ниже, чтобы открыть форму записи.<br>
         После отправки заявки я свяжусь с вами в течение дня.
       </p>
-      <a 
-        href="https://forms.yandex.ru/u/6a396fba95add51e8e938a1b/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="btn"
-        style="font-size:18px;padding:18px 50px">
-        ✦ Открыть форму записи
-      </a>
-      <p style="color:var(--muted);margin-top:25px;font-size:14px">
+      <div style="text-align:center">
+        <a 
+          href="https://forms.yandex.ru/u/6a396fba95add51e8e938a1b/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn consent-btn"
+          id="formBtn">
+          ✦ Открыть форму записи
+        </a>
+      </div>
+      <p style="color:var(--muted);margin-top:25px;font-size:14px;text-align:center">
         Форма откроется в новой вкладке
       </p>
     </div>
+    
+    <!-- Чекбокс согласия - ниже формы -->
+    <div class="consent-wrapper">
+      <input type="checkbox" id="consentCheck" class="consent-checkbox">
+      <label for="consentCheck" class="consent-label">
+        <span class="consent-box"></span>
+        <span class="consent-text">
+          Я ознакомился(ась) и принимаю условия 
+<a href="oferta.html" target="_blank">публичной оферты</a>
+        </span>
+      </label>
+    </div>
   </div>
+  
+  <style>
+    .consent-wrapper{
+      max-width:700px;
+      margin:30px auto 0;
+    }
+    
+    /* Скрываем нативный чекбокс */
+    .consent-checkbox{
+      position:absolute;
+      opacity:0;
+      width:0;height:0;
+    }
+    
+    /* Стилизованная галочка */
+    .consent-label{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      cursor:pointer;
+      padding:20px;
+      background:rgba(26,26,51,0.5);
+      border:1px solid var(--border);
+      border-radius:12px;
+      transition:all .3s;
+    }
+    .consent-label:hover{
+      border-color:var(--gold);
+    }
+    
+    .consent-box{
+      flex-shrink:0;
+      width:22px;height:22px;
+      border:2px solid var(--gold);
+      border-radius:4px;
+      position:relative;
+      transition:all .3s;
+    }
+    
+    /* Галочка внутри квадрата */
+    .consent-box::after{
+      content:'';
+      position:absolute;
+      left:6px;top:2px;
+      width:6px;height:12px;
+      border:solid var(--gold);
+      border-width:0 2px 2px 0;
+      transform:rotate(45deg) scale(0);
+      transition:transform .2s;
+    }
+    
+    .consent-checkbox:checked + .consent-label .consent-box{
+      background:rgba(212,175,55,0.15);
+    }
+    .consent-checkbox:checked + .consent-label .consent-box::after{
+      transform:rotate(45deg) scale(1);
+    }
+    
+    .consent-text{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      text-align:center;
+    }
+    .consent-text a{
+      color:var(--gold);
+      text-decoration:underline;
+    }
+    
+    /* Блок формы по умолчанию: заблюрен и неактивен */
+    .consent-block{
+      filter:blur(5px);
+      -webkit-filter:blur(5px);
+      opacity:0.5;
+      pointer-events:none;
+      user-select:none;
+      transition:filter .4s, opacity .4s;
+    }
+    
+    /* Когда добавлен класс active - убираем блюр */
+    .consent-block.active{
+      filter:blur(0);
+      -webkit-filter:blur(0);
+      opacity:1;
+      pointer-events:auto;
+      user-select:auto;
+    }
+    
+    .consent-btn{
+      font-size:18px;
+      padding:18px 50px;
+    }
+  </style>
+  
+  <script>
+    // JavaScript для управления блокировкой формы
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkbox = document.getElementById('consentCheck');
+      const formBlock = document.getElementById('formBlock');
+      
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          formBlock.classList.add('active');
+        } else {
+          formBlock.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-contacts">
-        <a href="https://t.me/mynumerologiya_4465" target="_blank">✈ Telegram: t.me/mynumerologiya_4465</a>
-        <a href="mailto:Numerolog4465@yandex.ru">✉Numerolog4465@yandex.ru</a>
-      </div>
-      <div class="copyright">© 2026 НУМЕРОЛОГ и Я. Скворцова Елена Владимировна ИНН 773571491874. </div>
+<footer>
+  <div class="container">
+    <div class="footer-contacts">
+      <a href="https://t.me/mynumerologiya_4465">✈ Telegram</a>
+      <a href="mailto:Numerolog4465@yandex.ru">✉ Почта</a>
     </div>
-  </footer>
+    <div class="footer-docs" style="margin:20px 0">
+      <a href="oferta.html">Публичная оферта</a>
+    </div>
+    <div class="copyright">© 2026 НУМЕРОЛОГ и Я. Скворцова Елена Владимировна ИНН 773571491874</div>
+  </div>
+</footer>
 
   <script>
     // FAQ аккордеон
