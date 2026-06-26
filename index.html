@@ -65,7 +65,58 @@
         opacity: 0.6
       }
     }
+/* Стрелка прокрутки вниз */
+.scroll-indicator{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:30px;
+  height:50px;
+  cursor:pointer;
+  animation:fadeInUp 1s ease-in-out 1s both;
+}
 
+.scroll-arrow{
+  width:30px;
+  height:30px;
+  border-right:3px solid var(--gold);
+  border-bottom:3px solid var(--gold);
+  transform:rotate(45deg);
+  animation:scrollDown 2s infinite;
+}
+
+@keyframes scrollDown{
+  0%{
+    transform:rotate(45deg) translate(-5px,-5px);
+    opacity:0;
+  }
+  50%{
+    opacity:1;
+  }
+  100%{
+    transform:rotate(45deg) translate(5px,5px);
+    opacity:0;
+  }
+}
+
+@keyframes fadeInUp{
+  from{
+    opacity:0;
+    transform:translateX(-50%) translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+}
+
+/* Скрываем стрелку на очень маленьких экранах */
+@media(max-width:480px){
+  .scroll-indicator{
+    bottom:20px;
+  }
+}
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -631,14 +682,19 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Раскройте свой потенциал через язык чисел</h1>
-      <p class="subtitle">Практикующий нумеролог.
-      <p class="subtitle">Персональные консультации для взрослых и детей — узнайте своё предназначение, таланты и путь
-        реализации.</p>
-      <a href="#contact" class="btn">Записаться на консультацию</a>
-    </div>
-  </section>
+  <div class="hero-content">
+    <h1>Раскройте свой потенциал через язык чисел</h1>
+    <p class="subtitle">Практикующий нумеролог.<br>
+      Персональные консультации для взрослых и детей — узнайте своё предназначение, таланты и путь
+      реализации.</p>
+    <a href="#contact" class="btn">Записаться на консультацию</a>
+  </div>
+  
+  <!-- Стрелка прокрутки вниз -->
+  <div class="scroll-indicator">
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
 
 
   <!-- ABOUT -->
@@ -832,7 +888,7 @@
             направлении – очень рекомендую данную игру. Может это тот самый пазл, который, даже если не соберёт полную
             картину вашей личности, но однозначно обогатит. И вы с большим багажом будете познавать удивительный мир,
             под названием Я.</p>
-          <div class="review-author">— Ирина, 55 лет</div>
+          <div class="review-author">— Ирина, </div>
         </div>
 
       </div>
@@ -914,13 +970,15 @@
     <!-- Чекбокс согласия - ниже формы -->
     <div class="consent-wrapper">
       <input type="checkbox" id="consentCheck" class="consent-checkbox">
-      <label for="consentCheck" class="consent-label">
-        <span class="consent-box"></span>
-        <span class="consent-text">
-          Я ознакомился(ась) и принимаю условия 
-<a href="oferta.html" target="_blank">публичной оферты</a>
-        </span>
-      </label>
+<label for="consentCheck" class="consent-label">
+  <span class="consent-box"></span>
+  <span class="consent-text">
+    Я ознакомился(ась) и принимаю условия 
+    <a href="oferta.html" target="_blank">публичной оферты</a> 
+    и 
+    <a href="privacy.html" target="_blank">политики конфиденциальности</a>
+  </span>
+</label>
     </div>
   </div>
   
@@ -1039,11 +1097,17 @@
 <footer>
   <div class="container">
     <div class="footer-contacts">
-      <a href="https://t.me/mynumerologiya_4465">✈ Telegram</a>
-      <a href="mailto:Numerolog4465@yandex.ru">✉ Почта</a>
+      <a href="https://t.me/mynumerologiya_4465" target="_blank">✈ Telegram: t.me/mynumerologiya_4465</a>
+      <a href="mailto:Numerolog4465@yandex.ru">✉ Почта: Numerolog4465@yandex.ru</a>
     </div>
     <div class="footer-docs" style="margin:20px 0">
-      <a href="oferta.html">Публичная оферта</a>
+      <a href="oferta.html" style="color:var(--gold);text-decoration:underline">
+        Публичная оферта
+      </a>
+      <span style="color:var(--muted);margin:0 10px">|</span>
+      <a href="privacy.html" style="color:var(--gold);text-decoration:underline">
+        Политика конфиденциальности
+      </a>
     </div>
     <div class="copyright">© 2026 НУМЕРОЛОГ и Я. Скворцова Елена Владимировна ИНН 773571491874</div>
   </div>

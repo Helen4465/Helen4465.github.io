@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Политика конфиденциальности — НУМЕРОЛОГ и Я</title>
+<meta name="description" content="Политика конфиденциальности и обработки персональных данных сайта НУМЕРОЛОГ и Я">
+<style>
+  :root{
+    --bg:#0b0b1a;
+    --bg-2:#14142b;
+    --gold:#d4af37;
+    --gold-light:#f1d77a;
+    --text:#e8e8f0;
+    --muted:#a0a0b8;
+    --card:#1a1a33;
+    --border:rgba(212,175,55,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Georgia', 'Times New Roman', serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.8;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 60% 70%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 80% 20%, #d4af37, transparent),
+      radial-gradient(1px 1px at 30% 80%, #fff, transparent),
+      radial-gradient(2px 2px at 90% 50%, #fff, transparent),
+      radial-gradient(1px 1px at 10% 60%, #d4af37, transparent),
+      radial-gradient(1.5px 1.5px at 50% 40%, #fff, transparent);
+    background-size: 400px 400px;
+    opacity:0.5;
+    z-index:-1;
+    animation: twinkle 8s infinite alternate;
+  }
+  @keyframes twinkle{
+    0%{opacity:0.3}
+    100%{opacity:0.6}
+  }
+
+  .container{max-width:1000px;margin:0 auto;padding:0 24px}
+
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(11,11,26,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+  .logo{font-size:24px;color:var(--gold);font-weight:bold;letter-spacing:2px;text-decoration:none}
+  .logo span{color:var(--text)}
+  .back-link{
+    color:var(--gold);
+    text-decoration:none;
+    font-size:15px;
+    transition:color .3s;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .back-link:hover{color:var(--gold-light)}
+
+  main{padding:60px 0}
+  .doc-header{
+    text-align:center;
+    margin-bottom:50px;
+    padding-bottom:30px;
+    border-bottom:2px solid var(--border);
+  }
+  .doc-header h1{
+    font-size:clamp(28px,4vw,42px);
+    color:var(--gold);
+    margin-bottom:16px;
+    line-height:1.3;
+  }
+  .doc-meta{
+    color:var(--muted);
+    font-size:16px;
+    margin-top:20px;
+  }
+  .doc-meta p{margin-bottom:8px}
+
+  .doc-section{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:30px;
+    margin-bottom:30px;
+  }
+  .doc-section h2{
+    color:var(--gold);
+    font-size:24px;
+    margin-bottom:20px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--border);
+  }
+  .doc-section h3{
+    color:var(--gold-light);
+    font-size:18px;
+    margin:20px 0 12px;
+  }
+  .doc-section p{
+    margin-bottom:14px;
+    color:var(--text);
+    text-align:justify;
+  }
+  .doc-section ul,
+  .doc-section ol{
+    margin:14px 0 14px 30px;
+    color:var(--text);
+  }
+  .doc-section li{
+    margin-bottom:10px;
+    text-align:justify;
+  }
+  .doc-section a{
+    color:var(--gold);
+    text-decoration:underline;
+    transition:color .3s;
+  }
+  .doc-section a:hover{
+    color:var(--gold-light);
+  }
+  .doc-section .note{
+    background:rgba(212,175,55,0.08);
+    border-left:3px solid var(--gold);
+    padding:14px 18px;
+    border-radius:0 8px 8px 0;
+    margin:16px 0;
+    color:var(--muted);
+    font-size:15px;
+  }
+
+  .contacts-block{
+    background:linear-gradient(135deg,var(--card),var(--bg-2));
+    border:2px solid var(--gold);
+    padding:30px;
+    border-radius:16px;
+    margin-top:40px;
+  }
+  .contacts-block h2{
+    color:var(--gold);
+    font-size:24px;
+    margin-bottom:20px;
+    text-align:center;
+  }
+  .contacts-block p{
+    margin-bottom:12px;
+    text-align:center;
+  }
+  .contacts-block strong{
+    color:var(--gold-light);
+  }
+  .contacts-block a{
+    color:#ffffff;
+    text-decoration:underline;
+  }
+
+  footer{
+    background:#05050f;
+    padding:40px 0 20px;
+    text-align:center;
+    border-top:1px solid var(--border);
+    margin-top:60px;
+  }
+  .footer-contacts{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-bottom:24px;
+  }
+  .footer-contacts a{
+    color:var(--text);
+    text-decoration:none;
+    transition:color .3s;
+  }
+  .footer-contacts a:hover{color:var(--gold)}
+  .footer-docs{margin:20px 0}
+  .footer-docs a{
+    color:var(--gold);
+    text-decoration:underline;
+    margin:0 10px;
+  }
+  .copyright{color:var(--muted);font-size:14px}
+
+  @media(max-width:768px){
+    .doc-section{padding:20px}
+    .doc-section h2{font-size:20px}
+    .contacts-block{padding:20px}
+    main{padding:40px 0}
+    .footer-contacts{gap:20px;font-size:14px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">✦ <span>НУМЕРОЛОГ и Я</span></a>
+    <a href="index.html" class="back-link">← На главную</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="doc-header">
+      <h1>Политика конфиденциальности<br>и обработки персональных данных</h1>
+      <div class="doc-meta">
+        <p>г. Москва</p>
+        <p>Редакция от 26.06.2026 г.</p>
+      </div>
+    </div>
+
+    <!-- 1. Общие положения -->
+    <div class="doc-section">
+      <h2>1. Общие положения</h2>
+      <p>Настоящая Политика конфиденциальности (далее — Политика) действует в отношении сайта <a href="https://helen4465.github.io" target="_blank">https://helen4465.github.io</a> и регулирует обработку персональных данных пользователей сайта.</p>
+      <p><strong>Оператор персональных данных:</strong> Скворцова Елена Владимировна, самозанятая, ИНН 773571491874 (далее — Оператор).</p>
+      <p>Настоящая Политика разработана в соответствии с Федеральным законом № 152-ФЗ «О персональных данных» и другими нормативными актами РФ.</p>
+      <p>Используя сайт, заполняя формы записи или обращаясь к Оператору любым способом, Пользователь даёт согласие на обработку своих персональных данных в соответствии с настоящей Политикой.</p>
+    </div>
+
+    <!-- 2. Какие данные мы собираем -->
+    <div class="doc-section">
+      <h2>2. Какие данные мы собираем</h2>
+      <p>Оператор собирает и обрабатывает только те данные, которые необходимы для оказания услуг:</p>
+      <ul>
+        <li><strong>Имя Пользователя</strong> (имя взрослого клиента) — для обращения и коммуникации. Фамилия предоставляется Пользователем по желанию и не является обязательной;</li>
+        <li><strong>Контактные данные</strong> — телефон, email, Telegram — для связи и отправки материалов;</li>
+        <li><strong>Дата рождения</strong> — основной рабочий параметр для нумерологического расчёта;</li>
+        <li><strong>Данные ребёнка</strong> — при заказе консультации для несовершеннолетнего указывается имя ребёнка и его дата рождения с согласия родителя/законного представителя. Фамилия ребёнка не является обязательной и предоставляется родителем по желанию;</li>
+        <li><strong>Запрос Пользователя</strong> — тема консультации, которую он хочет обсудить.</li>
+      </ul>
+      <div class="note">
+  <strong>Важно:</strong> Оператор не запрашивает и не хранит паспортные данные, банковские реквизиты, номера карт и иную чувствительную информацию. Оплата производится одним из двух способов по выбору клиента: через сервис интернет-эквайринга Robokassa либо прямым переводом на расчётный счёт Оператора в банке. В обоих случаях Оператор получает только подтверждение факта поступления платежа, но не имеет доступа к банковским данным клиента.
+</div>
+    </div>
+
+    <!-- 3. Цели обработки данных -->
+    <div class="doc-section">
+      <h2>3. Цели обработки данных</h2>
+      <p>Персональные данные обрабатываются исключительно для следующих целей:</p>
+      <ul>
+        <li>Оказание нумерологических и консультационных услуг;</li>
+        <li>Связь с Пользователем по вопросам заказа и оказания услуг;</li>
+        <li>Отправка результатов консультации (файлов, записей, материалов);</li>
+        <li>Исполнение требований законодательства РФ (налогообложение, отчётность);</li>
+        <li>Улучшение качества услуг и обратной связи.</li>
+      </ul>
+    </div>
+
+    <!-- 4. Способы и сроки обработки -->
+    <div class="doc-section">
+      <h2>4. Способы и сроки обработки</h2>
+      <h3>Способы обработки:</h3>
+      <ul>
+        <li>Запись и хранение на электронных носителях;</li>
+        <li>Передача по каналам связи (email, мессенджеры);</li>
+        <li>Использование в рабочих расчётах и консультациях.</li>
+      </ul>
+      <h3>Сроки хранения:</h3>
+      <ul>
+        <li>Данные хранятся в течение срока оказания услуг и 3 года после — для соблюдения требований налогового законодательства;</li>
+        <li>По истечении срока данные удаляются.</li>
+      </ul>
+    </div>
+
+    <!-- 5. Передача данных третьим лицам -->
+    <div class="doc-section">
+      <h2>5. Передача данных третьим лицам</h2>
+      <p>Оператор не передаёт персональные данные Пользователей третьим лицам, за исключением следующих случаев:</p>
+      <ul>
+  <li>По требованию уполномоченных государственных органов в случаях, предусмотренных законом;</li>
+  <li>Для обеспечения оплаты услуг — платёжной системе <strong>Robokassa</strong> (в случае выбора данного способа оплаты) в минимально необходимом объёме, либо банку-получателю при прямом переводе на расчётный счёт Оператора;</li>
+  <li>С согласия самого Пользователя.</li>
+</ul>
+      <div class="note">
+        <strong>Конфиденциальность консультаций:</strong> Оператор не разглашает факт обращения клиента, содержание консультаций и результаты разборов третьим лицам — включая родственников — без согласия клиента. Исключение: родители получают информацию о своих несовершеннолетних детях.
+      </div>
+    </div>
+
+    <!-- 6. Защита данных -->
+    <div class="doc-section">
+      <h2>6. Защита данных</h2>
+      <p>Оператор принимает необходимые организационные и технические меры для защиты персональных данных от несанкционированного доступа, утраты, изменения, блокирования или распространения.</p>
+    </div>
+
+    <!-- 7. Права пользователя -->
+    <div class="doc-section">
+      <h2>7. Права пользователя</h2>
+      <p>Пользователь имеет право:</p>
+      <ul>
+        <li>Получить информацию о том, какие его данные обрабатываются;</li>
+        <li>Уточнить, дополнить или заблокировать свои данные;</li>
+        <li>Отозвать согласие на обработку персональных данных.</li>
+      </ul>
+      <p>Для реализации своих прав Пользователь может направить запрос на email: <a href="mailto:Numerolog4465@yandex.ru">Numerolog4465@yandex.ru</a>.</p>
+    </div>
+
+    <!-- 8. Обработка данных несовершеннолетних -->
+    <div class="doc-section">
+      <h2>8. Обработка данных несовершеннолетних</h2>
+      <p>При заказе консультации для ребёнка (до 14 лет) персональные данные ребёнка вносит его родитель или законный представитель. Совершая заказ, родитель подтверждает, что действует в интересах ребёнка и даёт согласие на обработку его персональных данных.</p>
+      <p>Данные несовершеннолетних используются исключительно для проведения нумерологического разбора и не передаются третьим лицам.</p>
+    </div>
+
+    <!-- 9. Изменения в Политике -->
+    <div class="doc-section">
+      <h2>9. Изменения в Политике</h2>
+      <p>Оператор вправе вносить изменения в настоящую Политику. Новая редакция вступает в силу с момента её размещения на сайте.</p>
+      <p>Рекомендуем периодически проверять эту страницу, чтобы быть в курсе актуальных условий.</p>
+    </div>
+
+    <!-- Контакты -->
+    <div class="contacts-block">
+      <h2>Контакты Оператора</h2>
+      <p>По всем вопросам, связанным с обработкой персональных данных, вы можете обратиться:</p>
+      <p><strong>Оператор:</strong> Скворцова Елена Владимировна</p>
+      <p><strong>ИНН:</strong> 773571491874</p>
+      <p><strong>Email:</strong> <a href="mailto:Numerolog4465@yandex.ru">Numerolog4465@yandex.ru</a></p>
+      <p><strong>Telegram:</strong> <a href="https://t.me/mynumerologiya_4465" target="_blank">@mynumerologiya_4465</a></p>
+      <p><strong>Сайт:</strong> <a href="https://helen4465.github.io" target="_blank">https://helen4465.github.io</a></p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-contacts">
+      <a href="https://t.me/mynumerologiya_4465" target="_blank">✈ Telegram: t.me/mynumerologiya_4465</a>
+      <a href="mailto:Numerolog4465@yandex.ru">✉ Numerolog4465@yandex.ru</a>
+    </div>
+    <div class="footer-docs">
+      <a href="oferta.html">Публичная оферта</a>
+    </div>
+    <div class="copyright">© 2026 НУМЕРОЛОГ и Я. Скворцова Елена Владимировна ИНН 773571491874</div>
+  </div>
+</footer>
+
+</body>
+</html>
